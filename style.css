@@ -1,0 +1,24 @@
+body{
+    background-color: aquamarine;
+}
+
+input{
+    font-size: 20px;
+    width: 300px;
+}
+button{
+    font-size: 20px;
+}
+p{
+    font-size: 20px;
+}
+.news{
+    border: 5px solid #04493f;
+    margin: 2px;
+    padding: 2px;
+}
+.search{
+    background-color: aquamarine;
+    padding: 5px;
+    text-align: end;
+}

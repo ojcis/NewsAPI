@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<form action="" class="w-50 align-self-center mx-auto">
+    <div class="search">
+        <input type="text" name="search">
+        <button type="submit">Search</button>
+    </div>
+</form>
+{% for item in news %}
+    <div class="news">
+        <h1>{{ item.title }}</h1>
+        <p>{{ item.description }}</p>
+        <a href="{{ item.url }}" target="_blank">go to site to read more</a>
+    </div>
+{% endfor %}
+</body>
+</html>
