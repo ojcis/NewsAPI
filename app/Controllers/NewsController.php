@@ -17,8 +17,7 @@ class NewsController
                 'news' => $news->getNewsCollection(),
                 'search' => $search
             ]);
-        }else{
-            return new Template('search.html.twig');
         }
+        return new Template('search.html.twig');
     }
 }
