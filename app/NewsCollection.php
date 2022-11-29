@@ -11,9 +11,13 @@ class NewsCollection
 
     public function __construct(string $search)
     {
-        $allNews=(new NewsApi($_ENV['API_KEY']))->getEverything($search,null,null,null,null,null,'en',null,10);
+        $allNews=(new NewsApi($_ENV['API_KEY']))->getEverything($search);
         foreach ($allNews->articles as $article){
-            $this->newsCollection[]=new News($article->title, $article->description, $article->url);
+            $img=$article->urlToImage;
+            if (! $img){
+                $img='https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg';
+            }
+            $this->newsCollection[]=new News($article->title, $article->description, $article->url, $img);
         }
     }
 

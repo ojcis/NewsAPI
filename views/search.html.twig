@@ -22,19 +22,8 @@
         </div>
     </form><br>
 </div>
-<div class="b">
-    <div class="cards">
-        {% for item in news %}
-        <div class="card">
-            <h2 class="card-title">{{ item.title }}</h2>
-            <img src="{{ item.picture }}" alt="">
-            <p class="card-desc">
-                {{ item.description }}<br>
-                <a href="{{ item.url }}" target="_blank">Go to site to read more</a>
-            </p>
-        </div>
-        {% endfor %}
-    </div>
+<div class="my">
+    Welcome! Search some articles.
 </div>
 </body>
 </html>
