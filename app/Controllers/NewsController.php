@@ -13,11 +13,11 @@ class NewsController
         $search=$_GET['search'];
         if ($search) {
             $news = new NewsCollection($search);
-            return new Template('index.html.twig', [
+            return new Template('index.twig', [
                 'news' => $news->getNewsCollection(),
                 'search' => $search
             ]);
         }
-        return new Template('search.html.twig');
+        return new Template('search.twig');
     }
 }
