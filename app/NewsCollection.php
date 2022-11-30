@@ -20,7 +20,6 @@ class NewsCollection
             $this->newsCollection[]=new News($article->title, $article->description, $article->url, $img);
         }
     }
-
     public function getNewsCollection(): array
     {
         return $this->newsCollection;

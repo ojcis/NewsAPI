@@ -134,8 +134,9 @@ button {
     text-align: center;
     font-size: 32px;
     padding: 16px;
-    width: 300px;
-    margin-top: 50px;
+    width: 15.5%;
+    margin: 4px;
+    margin-top: 40px;
     transition: all 0.5s;
     cursor: pointer;
     box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
@@ -170,6 +171,7 @@ button:hover:after {
 .c{
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .h2{
