@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\colections\NewsCollection;
+use App\Models\Collections\NewsCollection;
 use App\Template;
 
 class NewsController
@@ -25,7 +25,8 @@ class NewsController
             return new Template('index.twig', [
                 'news' => $news->getNewsCollection(),
                 'search' => $search,
-                'user' => $_SESSION['user']
+                'user' => $_SESSION['user'],
+                'count' => count($news->getNewsCollection())
             ]);
         }
 

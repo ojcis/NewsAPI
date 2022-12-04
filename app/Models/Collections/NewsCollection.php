@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models\colections;
+namespace App\Models\Collections;
 
 use App\Models\News;
 use jcobhams\NewsApi\NewsApi;
 
 class NewsCollection
 {
-    private array $newsCollection;
+    private array $newsCollection=[];
 
     public function __construct(string $search)
     {
@@ -15,7 +15,7 @@ class NewsCollection
         foreach ($allNews->articles as $article){
             $img=$article->urlToImage;
             if (! $img){
-                $img='https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg';
+                $img='img/image-not-available.jpg';
             }
             $this->newsCollection[]=new News($article->title, $article->description, $article->url, $img);
         }

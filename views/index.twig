@@ -46,7 +46,7 @@
 </div>
 <div class="box2">
     {% if search %}
-        <h2 class="h3">Search results for '{{ search }}'</h2>
+        <h2 class="h3">{% if count == 0 %}There is no s{% else %}S{% endif %}earch results for '{{ search }}'.</h2>
     {% endif %}
 </div>
 <div>
