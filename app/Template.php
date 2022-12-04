@@ -9,7 +9,7 @@ class Template
 {
     private string $path;
     private array $data;
-    private string $viewsBasePath = "views";
+    private string $viewsBasePath = "../views";
 
     public function __construct(string $path, array $data = [])
     {

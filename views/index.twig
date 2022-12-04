@@ -5,24 +5,37 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>news</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-<div class="b">
-    <form action="">
-        <div class="searchBox">
-            <input class="searchInput"type="text" name="search" placeholder="enter what you want to search">
-            <div class="searchButton">
-                <i class="material-icons">
-                    search
-                </i>
-            </div>
-        </div>
-    </form><br>
+<div class="loginBox">
+    <form action="/">
+        <input class="link" type="submit" name="home" value="Home"> |
+    {% if user %}
+        <input class="link" type="submit" name="logout" value="logout">
+        </form>
+    {% else %}
+        <a href="/register" class="login">register</a> | <a href="/login" class="login">login</a>
+    {% endif %}
 </div>
-<div class="c">
-    <form class="c" action="">
+<div class="box">
+    <div class="welcome">
+        <h2 class="h2">
+            Welcome, {% if user %}{{ user }}!{% else %}please login.{% endif %}
+        </h2>
+    </div>
+    <div class="search">
+        <form action="/">
+            <div class="searchBox">
+                <input class="searchInput" type="text" name="search" placeholder="enter what you want to search">
+                <button class="searchButton">search</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="tags">
+    <form action="/">
     <button type="submit" name="search" value="Sports"><span>Sport</span></button>
     <button type="submit" name="search" value="Health"><span>Health</span></button>
     <button type="submit" name="search" value="Crime"><span>Crime</span></button>
@@ -31,7 +44,7 @@
     <button type="submit" name="search" value="Fun"><span>Fun</span></button>
     </form>
 </div>
-<div class="b">
+<div>
     <div class="cards">
         {% for item in news %}
         <div class="card">

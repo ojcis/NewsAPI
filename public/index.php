@@ -1,15 +1,29 @@
 <?php
 
-require_once 'vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
-use App\Controllers\NewsController;
+use Dotenv\Dotenv;
+use App\Router;
 use App\Template;
+use App\Controllers\NewsController;
+use App\Controllers\RegisterController;
+use App\Controllers\LoginController;
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+session_start();
+
+$dotenv = Dotenv::createImmutable(__DIR__,'../.env');
 $dotenv->load();
 
+$router = new Router();
+$router->handleUri();
+
+/**
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $route) {
     $route->addRoute('GET', '/', [NewsController::class, 'index']);
+    $route->addRoute('GET', '/register', [RegisterController::class, 'showForm']);
+    $route->addRoute('POST', '/register', [RegisterController::class, 'register']);
+    $route->addRoute('GET', '/login', [LoginController::class, 'showForm']);
+    $route->addRoute('POST', '/login', [LoginController::class, 'login']);
 });
 
 // Fetch method and URI from somewhere
@@ -44,3 +58,4 @@ switch ($routeInfo[0]) {
         }
         break;
 }
+*/

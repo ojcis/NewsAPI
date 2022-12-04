@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models\colections;
 
-use jcobhams\NewsApi\NewsApi;
 use App\Models\News;
+use jcobhams\NewsApi\NewsApi;
 
 class NewsCollection
 {

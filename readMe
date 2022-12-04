@@ -1,3 +1,6 @@
-ad .env file with ur API key, like in .env.example file.
+ad .env file with your:
+-API key
+-mysql profile parameters
+like in .env.example file.
 
 get your API key for free: https://newsapi.org/
