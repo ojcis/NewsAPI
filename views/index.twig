@@ -44,6 +44,11 @@
     <button type="submit" name="search" value="Fun"><span>Fun</span></button>
     </form>
 </div>
+<div class="box2">
+    {% if search %}
+        <h2 class="h3">Search results for '{{ search }}'</h2>
+    {% endif %}
+</div>
 <div>
     <div class="cards">
         {% for item in news %}

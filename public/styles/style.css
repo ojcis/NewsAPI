@@ -34,6 +34,10 @@ a.login{
     background-color: #34495e;
     padding: 10px;
 }
+.box2{
+    text-align: center;
+    background-color: #34495e;
+}
 
 .welcome {
     display: inline-block;
@@ -168,7 +172,6 @@ button {
 
 button{
     cursor: pointer;
-    display: inline-block;
     position: relative;
     transition: 0.5s;
 }
@@ -239,4 +242,9 @@ button:hover:after {
 
 .error{
     color: red;
+}
+.h3{
+    font-size: 45px;
+    color: white;
+    text-align: center;
 }
