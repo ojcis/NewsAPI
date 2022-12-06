@@ -9,59 +9,60 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-<div class="loginBox">
-    <form action="/">
-        <input class="link" type="submit" name="home" value="Home"> |
-    {% if user %}
-        <input class="link" type="submit" name="logout" value="logout">
-        </form>
-    {% else %}
-        <a href="/register" class="login">register</a> | <a href="/login" class="login">login</a>
-    {% endif %}
-</div>
-<div class="box">
-    <div class="welcome">
-        <h2 class="h2">
-            Welcome, {% if user %}{{ user }}!{% else %}please login.{% endif %}
-        </h2>
-    </div>
-    <div class="search">
+    <div class="loginBox">
         <form action="/">
-            <div class="searchBox">
-                <input class="searchInput" type="text" name="search" placeholder="enter what you want to search">
-                <button class="searchButton">search</button>
-            </div>
+            <input class="link" type="submit" name="home" value="Home"> |
+        {% if userName %}
+            <a href="/profile" class="login">Profile</a> |
+            <input class="link" type="submit" name="logout" value="Logout">
+            </form>
+        {% else %}
+            <a href="/register" class="login">Register</a> | <a href="/login" class="login">Login</a>
+        {% endif %}
+    </div>
+    <div class="box">
+        <div class="welcome">
+            <h2 class="h2">
+                Welcome, {% if userName %}{{ userName }}!{% else %}please login.{% endif %}
+            </h2>
+        </div>
+        <div class="search">
+            <form action="/">
+                <div class="searchBox">
+                    <input class="searchInput" type="text" name="search" placeholder="enter what you want to search">
+                    <button class="searchButton">search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="tags">
+        <form action="/">
+        <button type="submit" name="search" value="Sports"><span>Sport</span></button>
+        <button type="submit" name="search" value="Health"><span>Health</span></button>
+        <button type="submit" name="search" value="Crime"><span>Crime</span></button>
+        <button type="submit" name="search" value="Politics"><span>Politics</span></button>
+        <button type="submit" name="search" value="Science"><span>Science</span></button>
+        <button type="submit" name="search" value="Fun"><span>Fun</span></button>
         </form>
     </div>
-</div>
-<div class="tags">
-    <form action="/">
-    <button type="submit" name="search" value="Sports"><span>Sport</span></button>
-    <button type="submit" name="search" value="Health"><span>Health</span></button>
-    <button type="submit" name="search" value="Crime"><span>Crime</span></button>
-    <button type="submit" name="search" value="Politics"><span>Politics</span></button>
-    <button type="submit" name="search" value="Science"><span>Science</span></button>
-    <button type="submit" name="search" value="Fun"><span>Fun</span></button>
-    </form>
-</div>
-<div class="box2">
-    {% if search %}
-        <h2 class="h3">{% if count == 0 %}There is no s{% else %}S{% endif %}earch results for '{{ search }}'.</h2>
-    {% endif %}
-</div>
-<div>
-    <div class="cards">
-        {% for item in news %}
-        <div class="card">
-            <h2 class="card-title">{{ item.title }}</h2>
-            <img src="{{ item.picture }}" alt="">
-            <p class="card-desc">
-                {{ item.description }}<br>
-                <a href="{{ item.url }}" target="_blank">Go to site to read more</a>
-            </p>
-        </div>
-        {% endfor %}
+    <div class="box2">
+        {% if search %}
+            <h2 class="h3">{% if count == 0 %}There is no s{% else %}S{% endif %}earch results for '{{ search }}'.</h2>
+        {% endif %}
     </div>
-</div>
+    <div>
+        <div class="cards">
+            {% for item in news %}
+            <div class="card">
+                <h2 class="card-title">{{ item.title }}</h2>
+                <img src="{{ item.picture }}" alt="">
+                <p class="card-desc">
+                    {{ item.description }}<br>
+                    <a href="{{ item.url }}" target="_blank">Go to site to read more</a>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>

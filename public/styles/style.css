@@ -232,7 +232,7 @@ button:hover:after {
 
 .b{
     font-size: 25px;
-    width: 200px;
+    width: 250px;
     margin: 10px;
     background-color: #6faae0;
     border-radius: 8px;
@@ -247,4 +247,35 @@ button:hover:after {
     font-size: 45px;
     color: white;
     text-align: center;
+}
+
+.b2{
+    width: 350px;
+}
+
+.LR2{
+    width: 500px;
+    padding: 80px;
+    background-color: #5ca1e1;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.9);
+    border-radius: 30px;
+    font-size: 25px;
+    color: white;
+    text-align: center;
+}
+
+.p1{
+    text-align: left;
+    font-size: 30px;
+    background-color: #426485;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 20px;
+}
+
+.h3{
+    font-size: 45px;
+    color: white;
+    margin-top: 10px;
 }

@@ -9,29 +9,33 @@ class NewsController
 {
     public function index(): Template
     {
-        if ($_GET['logout']){
-            unset($_SESSION['user']);
+        $logout=$_GET['logout'] ?? null;
+        $home=$_GET['home'] ?? null;
+
+        if ($logout){
+            unset($_SESSION['userId']);
+            unset($_SESSION['userName']);
         }
 
-        if ($_GET['home']){
+        if ($home){
             return new Template('index.twig', [
-                'user'=> $_SESSION['user']
+                'userName'=> $_SESSION['userName']
             ]);
         }
 
-        $search=$_GET['search'];
-        if ($_GET['search']) {
+        $search=$_GET['search'] ?? null;
+        if ($search) {
             $news = new NewsCollection($search);
             return new Template('index.twig', [
                 'news' => $news->getNewsCollection(),
                 'search' => $search,
-                'user' => $_SESSION['user'],
+                'userName' => $_SESSION['userName'],
                 'count' => count($news->getNewsCollection())
             ]);
         }
 
         return new Template('index.twig', [
-            'user'=> $_SESSION['user']
+            'userName'=> $_SESSION['userName']
         ]);
     }
 }

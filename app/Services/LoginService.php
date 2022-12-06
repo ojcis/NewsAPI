@@ -16,7 +16,7 @@ class LoginService extends DataBaseService
     {
         $sql="select AES_DECRYPT(password,?) from users where id = ?";
         $stmt=$this->connection->prepare($sql);
-        $stmt->bindValue(1,$_ENV[PASSWORD_KEY]);
+        $stmt->bindValue(1,$_ENV['PASSWORD_KEY']);
         $stmt->bindValue(2,$id);
         $checkPassword=$stmt->executeQuery()->fetchOne();
         return ($password == $checkPassword);

@@ -17,8 +17,8 @@ class LoginController
         $email=$_POST['email'];
         $password=$_POST['password'];
         $dataBase= new LoginService();
-
         $id=$dataBase->getID($email);
+
         if (!$id){
             return new Template('login.twig',[
                 'error' => "No registered user with this email!"
@@ -32,9 +32,10 @@ class LoginController
             ]);
         }
 
-        $_SESSION['user']=$dataBase->getName($id);
+        $_SESSION['userId']=$id;
+        $_SESSION['userName']=$dataBase->getName($id);
         return new Template('index.twig',[
-            'user' => $_SESSION['user']
+            'userName' => $_SESSION['userName']
         ]);
     }
 }

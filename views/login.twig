@@ -14,8 +14,8 @@
             <h2>Please fill this login form.</h2><br>
             <p class="error">{{ error }}<p>
             <form action="/login" method="post">
-                <input class="i" type="email" id="email" name="email" value="{{ email }}" placeholder="email" required><br>
-                <input class="i" type="password" id="password" name="password" placeholder="password" required><br>
+                <input class="i" type="email" name="email" value="{{ email }}" placeholder="email" required><br>
+                <input class="i" type="password" name="password" placeholder="password" required><br>
                 <input class="b" type="submit" value="login">
             </form>
             Don't have account?

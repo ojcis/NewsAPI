@@ -5,6 +5,7 @@ namespace App;
 use App\Controllers\NewsController;
 use App\Controllers\RegisterController;
 use App\Controllers\LoginController;
+use App\Controllers\ProfileController;
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
 use function FastRoute\simpleDispatcher;
@@ -21,6 +22,11 @@ class Router
             $route->addRoute('POST', '/register', [RegisterController::class, 'register']);
             $route->addRoute('GET', '/login', [LoginController::class, 'showForm']);
             $route->addRoute('POST', '/login', [LoginController::class, 'login']);
+            $route->addRoute('GET', '/profile', [ProfileController::class, 'showForm']);
+            $route->addRoute('POST', '/profile=changeName', [ProfileController::class, 'changeName']);
+            $route->addRoute('POST', '/profile=changeEmail', [ProfileController::class, 'changeEmail']);
+            $route->addRoute('POST', '/profile=changePassword', [ProfileController::class, 'changePassword']);
+            $route->addRoute('POST', '/profile=deleteAccount', [ProfileController::class, 'deleteAccount']);
         });
     }
 
@@ -30,7 +36,7 @@ class Router
         $httpMethod = $_SERVER['REQUEST_METHOD'];
         $uri = $_SERVER['REQUEST_URI'];
 
-// Strip query string (?foo=bar) and decode URI
+        // Strip query string (?foo=bar) and decode URI
         if (false !== $pos = strpos($uri, '?')) {
             $uri = substr($uri, 0, $pos);
         }

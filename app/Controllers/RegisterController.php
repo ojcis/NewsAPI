@@ -22,8 +22,9 @@ class RegisterController
             $_POST['checkPassword']
         );
         $dataBase= new RegisterService();
+        $id=$dataBase->getID($newUser->getEmail());
 
-        if ($dataBase->getID($newUser->getEmail())){
+        if ($id){
             return new Template('register.twig',[
                 'error' => "This email is already used!",
                 'name' => $newUser->getName(),
@@ -40,10 +41,11 @@ class RegisterController
 
         $dataBase->addToDataBase($newUser);
 
-        $_SESSION['user']=$newUser->getName();
+        $_SESSION['userId']=$id;
+        $_SESSION['usersName']=$newUser->getName();
 
         return new Template('index.twig',[
-            'user' => $_SESSION['user']
+            'userName' => $_SESSION['usersName']
         ]);
     }
 }
