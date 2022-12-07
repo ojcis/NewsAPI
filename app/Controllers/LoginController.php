@@ -34,6 +34,7 @@ class LoginController
 
         $_SESSION['userId']=$id;
         $_SESSION['userName']=$dataBase->getName($id);
+        $_SESSION['userEmail']=$email;
         return new Template('index.twig',[
             'userName' => $_SESSION['userName']
         ]);

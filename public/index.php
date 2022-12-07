@@ -4,6 +4,9 @@ require_once '../vendor/autoload.php';
 
 use Dotenv\Dotenv;
 use App\Router;
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
+use App\ViewVariables\UserViewVariables;
 
 session_start();
 

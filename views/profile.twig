@@ -22,6 +22,7 @@
     <div class="LR2">
         <h2 class="h3">{{ user }} profile</h2>
         <p class="p1">
+            ID: {{ id }}<br>
             name: {{ user }}<br>
             email: {{ email }}<br>
         </p>
@@ -38,7 +39,7 @@
             <p style="font-size: 40px">Change email:</p>
             <p class="error">{{ error }}<p>
             <form action="/profile=changeEmail" method="post">
-                <input class="i" type="email" name="email" value="{{ email }}" placeholder="new email" required><br>
+                <input class="i" type="email" name="email" value="{{ newEmail }}" placeholder="new email" required><br>
                 <input class="i" type="password" name="password" placeholder="password" required><br>
                 <input class="b" type="submit" value="changeEmail">
             </form>

@@ -43,9 +43,9 @@ class RegisterController
 
         $_SESSION['userId']=$id;
         $_SESSION['usersName']=$newUser->getName();
-
+        $_SESSION['userEmail']=$newUser->getEmail();
         return new Template('index.twig',[
-            'userName' => $_SESSION['usersName']
+            'userName' => $_SESSION['usersName'],
         ]);
     }
 }

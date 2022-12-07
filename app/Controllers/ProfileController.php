@@ -12,7 +12,9 @@ class ProfileController
         $update = $_GET['update'] ?? false;
         return new Template('profile.twig',[
             $update => true,
-            'user' => $_SESSION['userName']
+            'user' => $_SESSION['userName'],
+            'id' => $_SESSION['userId'],
+            'email' => $_SESSION['userEmail']
         ]);
     }
 
@@ -24,6 +26,9 @@ class ProfileController
 
         if (!$dataBase->checkPassword($password)){
             return new Template('profile.twig',[
+                'user' => $_SESSION['userName'],
+                'id' => $_SESSION['userId'],
+                'email' => $_SESSION['userEmail'],
                 'changeName' => true,
                 'error' => 'Wrong password!',
                 'name' => $newName
@@ -44,9 +49,12 @@ class ProfileController
 
         if (!$dataBase->checkPassword($password)){
             return new Template('profile.twig',[
+                'user' => $_SESSION['userName'],
+                'id' => $_SESSION['userId'],
+                'email' => $_SESSION['userEmail'],
                 'changeEmail' => true,
                 'error' => 'Wrong password!',
-                'email' => $newEmail
+                'newEmail' => $newEmail
             ]);
         }
         $dataBase->changeEmail($newEmail);
@@ -64,6 +72,9 @@ class ProfileController
 
         if (!$dataBase->checkPassword($password)){
             return new Template('profile.twig',[
+                'user' => $_SESSION['userName'],
+                'id' => $_SESSION['userId'],
+                'email' => $_SESSION['userEmail'],
                 'changePassword' => true,
                 'error' => 'Wrong current password!',
             ]);
@@ -71,6 +82,9 @@ class ProfileController
 
         if ($newPassword != $checkNewPassword){
             return new Template('profile.twig',[
+                'user' => $_SESSION['userName'],
+                'id' => $_SESSION['userId'],
+                'email' => $_SESSION['userEmail'],
                 'changePassword' => true,
                 'error' => 'New passwords does not mach!',
             ]);
@@ -88,6 +102,9 @@ class ProfileController
 
         if (!$dataBase->checkPassword($password)){
             return new Template('profile.twig',[
+                'user' => $_SESSION['userName'],
+                'id' => $_SESSION['userId'],
+                'email' => $_SESSION['userEmail'],
                 'changePassword' => true,
                 'error' => 'Wrong password!',
             ]);
